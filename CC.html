@@ -1,0 +1,1636 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANNU X DARK CC — Trusted Seller Storefront</title>
+    <style>
+        /* ==================== RESET & THEME VARIABLES ==================== */
+        :root {
+            --bg-main: #09090b;
+            --bg-card: #121218;
+            --bg-card-hover: #181822;
+            --bg-input: #0c0c10;
+            --border-subtle: #23232f;
+            --neon-green: #00ff88;
+            --neon-cyan: #00d4ff;
+            --neon-purple: #a855f7;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(0, 212, 255, 0.08), transparent 35%),
+                radial-gradient(circle at 85% 20%, rgba(0, 255, 136, 0.07), transparent 35%),
+                var(--bg-main);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        /* ==================== CONTAINER & LAYOUT ==================== */
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* ==================== TOP NAVIGATION BAR ==================== */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(9, 9, 11, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 0;
+        }
+
+        .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #101820, #09090b);
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 16px rgba(0, 255, 136, 0.35), inset 0 0 10px rgba(0, 212, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            color: var(--neon-green);
+            letter-spacing: -0.5px;
+            flex-shrink: 0;
+        }
+
+        .brand-title {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .trusted-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 3px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(0, 255, 136, 0.12);
+            border: 1px solid rgba(0, 255, 136, 0.35);
+            color: var(--neon-green);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-nav {
+            padding: 9px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            color: #05080a;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 4px 14px rgba(0, 255, 136, 0.25);
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        /* ==================== HERO BANNER ==================== */
+        .hero {
+            padding: 36px 0 24px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            color: var(--neon-cyan);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            box-shadow: 0 0 8px var(--neon-green);
+        }
+
+        .hero h1 {
+            font-size: clamp(26px, 5vw, 44px);
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ffffff 0%, var(--neon-cyan) 50%, var(--neon-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 580px;
+            margin: 0 auto 22px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--neon-green), #00cc6e);
+            color: #041109;
+            font-weight: 800;
+            font-size: 14px;
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.25);
+            transition: transform 0.15s ease, filter 0.15s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.06);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 14px;
+            transition: border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon-cyan);
+            background: var(--bg-card-hover);
+        }
+
+        /* ==================== SECTION HEADERS ==================== */
+        .section {
+            padding: 28px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .section-kicker {
+            display: block;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: clamp(22px, 4vw, 30px);
+            font-weight: 900;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        /* ==================== FULL PRICE CARDS GRID ==================== */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .price-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+        }
+
+        .price-card.featured-best {
+            border-color: rgba(0, 255, 136, 0.55);
+            background: linear-gradient(180deg, rgba(0, 255, 136, 0.07) 0%, var(--bg-card) 60%);
+        }
+
+        .price-card.featured-popular {
+            border-color: rgba(0, 212, 255, 0.5);
+            background: linear-gradient(180deg, rgba(0, 212, 255, 0.07) 0%, var(--bg-card) 60%);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: -11px;
+            right: 16px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .badge-best {
+            background: var(--neon-green);
+            color: #03140b;
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.35);
+        }
+
+        .badge-popular {
+            background: var(--neon-cyan);
+            color: #031118;
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.35);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .pack-index {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+
+        .verified-check {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--neon-green);
+        }
+
+        .pack-main {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 16px;
+        }
+
+        .pack-amount {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .pack-amount span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-left: 3px;
+        }
+
+        .pack-price {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--neon-green);
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--neon-cyan), #0099ff);
+            color: #031018;
+            font-size: 14px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.15s ease, filter 0.15s ease;
+        }
+
+        .price-card.featured-best .btn-buy {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+        }
+
+        .btn-buy:hover {
+            filter: brightness(1.08);
+            transform: scale(1.01);
+        }
+
+        /* ==================== DEDICATED SCAN & PAY QR SECTION ==================== */
+        .pay-panel {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 255, 136, 0.35);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .pay-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .pay-grid {
+                grid-template-columns: 1.15fr 0.85fr;
+                padding: 12px;
+            }
+        }
+
+        .pay-info h3 {
+            font-size: 22px;
+            font-weight: 900;
+            margin: 8px 0 10px;
+            color: var(--text-primary);
+        }
+
+        .pay-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .upi-box {
+            background: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            margin-bottom: 16px;
+        }
+
+        .upi-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .upi-row + .upi-row {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .upi-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .upi-value {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            word-break: break-all;
+        }
+
+        .btn-copy-upi {
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            background: rgba(0, 212, 255, 0.14);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            color: var(--neon-cyan);
+            font-size: 12px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-copy-upi:hover {
+            background: rgba(0, 212, 255, 0.24);
+        }
+
+        .btn-copy-upi.copied {
+            background: rgba(0, 255, 136, 0.2);
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+        }
+
+        .pay-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Clean White QR Card (Guaranteed High-Contrast Scannability) */
+        .qr-white-card {
+            background: #ffffff;
+            color: #0f172a;
+            border-radius: 22px;
+            padding: 20px 18px 16px;
+            max-width: 295px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+            border: 3px solid #1e293b;
+        }
+
+        .qr-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #0f172a;
+            color: #00ff88;
+            font-weight: 900;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .qr-merchant {
+            font-size: 16px;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 0.3px;
+        }
+
+        .qr-sub {
+            font-size: 11px;
+            color: #475569;
+            font-weight: 600;
+            margin: 2px 0 12px;
+        }
+
+        .qr-frame {
+            position: relative;
+            width: 206px;
+            height: 206px;
+            margin: 0 auto;
+            padding: 8px;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-frame canvas,
+        .qr-frame img {
+            width: 186px;
+            height: 186px;
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        .qr-center-logo {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+            pointer-events: none;
+        }
+
+        .qr-center-logo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #128c7e;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-upi-footer {
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 11px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .qr-apps-row {
+            margin-top: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            margin-top: 40px;
+            padding: 24px 0 36px;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        /* ==================== ORDER & PAYMENT MODAL ==================== */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            overflow-y: auto;
+        }
+
+        .modal-backdrop.open {
+            display: flex;
+        }
+
+        .modal-dialog {
+            width: 100%;
+            max-width: 480px;
+            background: #111117;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 22px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+            overflow: hidden;
+            margin: auto;
+            animation: modalPop 0.2s ease-out;
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95) translateY(8px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: #0b0b0f;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-close-modal {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: #191922;
+            color: var(--text-secondary);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-close-modal:hover {
+            color: #ffffff;
+            background: #252532;
+        }
+
+        .modal-body {
+            padding: 18px 20px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-height: 82vh;
+            overflow-y: auto;
+        }
+
+        .selected-summary-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(0, 255, 136, 0.12));
+            border: 1px solid rgba(0, 255, 136, 0.35);
+        }
+
+        .modal-qr-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            border-radius: var(--radius-md);
+            background: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+        }
+
+        @media (min-width: 440px) {
+            .modal-qr-box {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .modal-qr-white {
+            position: relative;
+            width: 144px;
+            height: 144px;
+            flex-shrink: 0;
+            background: #ffffff;
+            padding: 6px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-qr-white canvas,
+        .modal-qr-white img {
+            width: 130px;
+            height: 130px;
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        .modal-qr-details {
+            flex: 1;
+            text-align: center;
+        }
+
+        @media (min-width: 440px) {
+            .modal-qr-details {
+                text-align: left;
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        @media (min-width: 440px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .field-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .field-input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+            color: #ffffff;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        .field-input:focus {
+            border-color: var(--neon-cyan);
+        }
+
+        .field-input.input-error {
+            border-color: #f43f5e;
+            box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.2);
+        }
+
+        .pay-method-pills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        @media (min-width: 440px) {
+            .pay-method-pills {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .method-pill {
+            padding: 8px 4px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.15s ease;
+        }
+
+        .method-pill.active {
+            background: rgba(0, 212, 255, 0.16);
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .order-preview-box {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            background: #08080b;
+            border: 1px solid var(--border-subtle);
+            color: #cbd5e1;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 11px;
+            line-height: 1.45;
+            resize: none;
+        }
+
+        .modal-cta-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-whatsapp {
+            width: 100%;
+            padding: 13px 16px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.28);
+        }
+
+        .btn-whatsapp:hover {
+            filter: brightness(1.06);
+        }
+
+        .btn-copy-order {
+            width: 100%;
+            padding: 11px 16px;
+            border-radius: var(--radius-md);
+            background: #181822;
+            border: 1px solid var(--border-subtle);
+            color: var(--neon-cyan);
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-copy-order:hover {
+            border-color: var(--neon-cyan);
+        }
+
+        /* ==================== TOAST MESSAGE ==================== */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 200;
+            background: #14141d;
+            border: 1px solid var(--neon-green);
+            color: #ffffff;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(16px);
+            pointer-events: none;
+            transition: all 0.25s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <div class="brand-wrap">
+                <div class="logo-badge" aria-label="MANNU X DARK CC Logo">M</div>
+                <div>
+                    <div class="brand-title">MANNU X DARK CC</div>
+                    <div class="trusted-pill">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        TRUSTED SELLER
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#scan-pay" class="btn-secondary" style="padding: 8px 12px; font-size: 12px;">UPI QR</a>
+                <a href="#full-price" class="btn-nav">Full Price</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <main class="container">
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                <span>🇮🇳 OFFICIAL GAMING STOREFRONT • INSTANT DELIVERY</span>
+            </div>
+            <h1>MANNU X DARK CC</h1>
+            <p>
+                100% Trusted Seller • Fast & Secure Top-Ups. Select any package below, scan the official UPI QR code, and send your order directly on WhatsApp.
+            </p>
+            <div class="hero-cta-row">
+                <a href="#full-price" class="btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    View Full Price List
+                </a>
+                <a href="#scan-pay" class="btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Scan &amp; Pay UPI QR
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================== FULL PRICE LIST SECTION ==================== -->
+        <section id="full-price" class="section">
+            <div class="section-header">
+                <span class="section-kicker">OFFICIAL RATE CARD</span>
+                <h2 class="section-title">Full price 🇮🇳</h2>
+                <p class="section-subtitle">Click <strong>Buy Now</strong> on any pack to open the instant UPI QR &amp; WhatsApp order slip.</p>
+            </div>
+
+            <div id="price-grid" class="price-grid">
+                <!-- Fallback static cards (automatically enhanced/synced by JS) -->
+            </div>
+        </section>
+
+        <!-- ==================== DEDICATED SCAN & PAY QR SECTION ==================== -->
+        <section id="scan-pay" class="section">
+            <div class="section-header">
+                <span class="section-kicker">VERIFIED UPI PAYMENT</span>
+                <h2 class="section-title">Scan &amp; Pay with Any UPI App</h2>
+                <p class="section-subtitle">Works with WhatsApp Pay, PhonePe, Google Pay, Paytm, and BHIM UPI.</p>
+            </div>
+
+            <div class="pay-panel">
+                <div class="pay-grid">
+                    <!-- Left: Merchant & UPI ID Controls -->
+                    <div class="pay-info">
+                        <div class="trusted-pill">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            VERIFIED MERCHANT ACCOUNT
+                        </div>
+                        <h3>Pay Directly to MANAUWAR REZA</h3>
+                        <p>
+                            Scan the white QR card on the right with any UPI camera, or copy the official UPI ID below. After payment, send your screenshot &amp; Game UID on WhatsApp for instant delivery.
+                        </p>
+
+                        <div class="upi-box">
+                            <div class="upi-row">
+                                <div>
+                                    <span class="upi-label">Merchant Name</span>
+                                    <strong style="font-size: 15px; color: #ffffff;">MANAUWAR REZA</strong>
+                                </div>
+                                <span style="font-size: 12px; color: var(--neon-green); font-weight: 700;">✔ Instant Verify</span>
+                            </div>
+
+                            <div class="upi-row">
+                                <div>
+                                    <span class="upi-label">Official UPI ID</span>
+                                    <span id="display-upi-id" class="upi-value">918700475480@waaxis</span>
+                                </div>
+                                <button type="button" id="btn-copy-upi-main" class="btn-copy-upi" onclick="copyUpiId('btn-copy-upi-main')">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <span>Copy UPI ID</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pay-actions">
+                            <a href="upi://pay?pa=918700475480@waaxis&pn=MANAUWAR%20REZA&cu=INR" class="btn-primary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                Open UPI App to Pay
+                            </a>
+                            <button type="button" class="btn-secondary" onclick="openOrderModal(1)">
+                                Create Order Slip
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: High-Contrast White QR Card -->
+                    <div>
+                        <div class="qr-white-card">
+                            <div class="qr-avatar">M</div>
+                            <div class="qr-merchant">MANAUWAR REZA</div>
+                            <div class="qr-sub">Scan this code to pay with any UPI app</div>
+
+                            <div class="qr-frame" id="main-qr-frame">
+                                <!-- Self-contained Canvas QR rendered here, with instant API image fallback -->
+                                <canvas id="main-qr-canvas" width="186" height="186" aria-label="UPI QR Code for MANAUWAR REZA"></canvas>
+                                <img id="main-qr-fallback"
+                                     src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=upi%3A%2F%2Fpay%3Fpa%3D918700475480%40waaxis%26pn%3DMANAUWAR%2520REZA%26cu%3DINR"
+                                     alt="Scan UPI QR Code for MANAUWAR REZA"
+                                     style="display: none;">
+                                <div class="qr-center-logo" aria-hidden="true">
+                                    <div class="qr-center-logo-inner">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="qr-upi-footer">UPI ID: 918700475480@waaxis</div>
+                            <div class="qr-apps-row">BHIM • UPI • GPay • PhonePe • Paytm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div style="font-weight: 800; color: #ffffff; margin-bottom: 4px;">MANNU X DARK CC • TRUSTED SELLER 🇮🇳</div>
+            <div>Official Merchant: MANAUWAR REZA (918700475480@waaxis) • Instant Top-Up Delivery</div>
+        </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE ORDER & PAYMENT MODAL ==================== -->
+    <div id="order-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-heading">
+                    <span style="color: var(--neon-green);">●</span> Complete Your Order
+                </div>
+                <button type="button" class="btn-close-modal" onclick="closeOrderModal()" aria-label="Close modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Selected Package Bar -->
+                <div class="selected-summary-bar">
+                    <div>
+                        <span style="font-size: 11px; color: var(--text-secondary); display: block;">SELECTED PACK</span>
+                        <strong id="modal-pack-label" style="font-size: 18px; font-weight: 900; color: #ffffff;">🇮🇳 10k ✔️</strong>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 11px; color: var(--text-secondary); display: block;">PAYABLE AMOUNT</span>
+                        <strong id="modal-pack-price" style="font-size: 22px; font-weight: 900; color: var(--neon-green);">₹2000</strong>
+                    </div>
+                </div>
+
+                <!-- Dynamic Amount QR & Direct UPI Pay -->
+                <div class="modal-qr-box">
+                    <div class="modal-qr-white">
+                        <canvas id="modal-qr-canvas" width="130" height="130"></canvas>
+                        <img id="modal-qr-fallback" src="" alt="Package UPI QR" style="display: none;">
+                    </div>
+                    <div class="modal-qr-details">
+                        <div style="font-size: 11px; font-weight: 800; color: var(--neon-green); text-transform: uppercase;">Scan &amp; Pay Exact Amount</div>
+                        <div style="font-size: 13px; font-weight: 700; color: #ffffff; margin: 3px 0;">MANAUWAR REZA</div>
+                        <div style="font-size: 11px; color: var(--neon-cyan); font-family: monospace; margin-bottom: 10px;">918700475480@waaxis</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;">
+                            <a id="modal-upi-link" href="#" class="btn-primary" style="padding: 8px 12px; font-size: 12px; width: 100%;">
+                                Open UPI App (₹<span id="modal-upi-btn-amt">2000</span>)
+                            </a>
+                            <button type="button" id="btn-copy-upi-modal" class="btn-copy-upi" style="width: 100%; justify-content: center;" onclick="copyUpiId('btn-copy-upi-modal')">
+                                Copy UPI ID
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Game UID & UTR Inputs -->
+                <div class="form-grid">
+                    <div>
+                        <label class="field-label" for="input-uid">Game UID / Username *</label>
+                        <input type="text" id="input-uid" class="field-input" placeholder="Enter your Game UID" oninput="refreshOrderPreview()">
+                    </div>
+                    <div>
+                        <label class="field-label" for="input-utr">UTR / Ref No. (Optional)</label>
+                        <input type="text" id="input-utr" class="field-input" placeholder="12-digit UPI Ref No." oninput="refreshOrderPreview()">
+                    </div>
+                </div>
+
+                <!-- Payment App Selector -->
+                <div>
+                    <span class="field-label">Payment App Used</span>
+                    <div class="pay-method-pills" id="method-pills">
+                        <button type="button" class="method-pill active" onclick="selectPayMethod(this, 'UPI QR')">UPI QR</button>
+                        <button type="button" class="method-pill" onclick="selectPayMethod(this, 'PhonePe')">PhonePe</button>
+                        <button type="button" class="method-pill" onclick="selectPayMethod(this, 'GPay')">GPay</button>
+                        <button type="button" class="method-pill" onclick="selectPayMethod(this, 'Paytm')">Paytm</button>
+                        <button type="button" class="method-pill" onclick="selectPayMethod(this, 'WhatsApp Pay')">WA Pay</button>
+                    </div>
+                </div>
+
+                <!-- Live Formatted Order Receipt -->
+                <div>
+                    <span class="field-label">Order Slip Preview</span>
+                    <textarea id="order-preview" class="order-preview-box" rows="5" readonly></textarea>
+                </div>
+
+                <!-- Send on WhatsApp & Copy Buttons -->
+                <div class="modal-cta-stack">
+                    <button type="button" class="btn-whatsapp" onclick="sendOrderOnWhatsApp()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"/></svg>
+                        Send Order on WhatsApp
+                    </button>
+                    <button type="button" class="btn-copy-order" onclick="copyOrderSlip()">
+                        Copy Order Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toast" class="toast" role="status" aria-live="polite">
+        <span style="color: var(--neon-green);">✔</span>
+        <span id="toast-text">Copied!</span>
+    </div>
+
+    <!-- ==================== VANILLA JAVASCRIPT (ZERO EXTERNAL DEPENDENCIES) ==================== -->
+    <script>
+        /* =========================================================================
+           1. STORE & PACKAGE DATA
+           ========================================================================= */
+        const STORE = {
+            name: "MANNU X DARK CC",
+            merchant: "MANAUWAR REZA",
+            upiId: "918700475480@waaxis",
+            whatsappPhone: "918700475480"
+        };
+
+        const PACKAGES = [
+            { id: 1, index: "#1", amount: "10k", price: 2000, badge: "BEST VALUE", badgeType: "best", cardClass: "featured-best" },
+            { id: 2, index: "#2", amount: "5k",  price: 1000, badge: "POPULAR",    badgeType: "popular", cardClass: "featured-popular" },
+            { id: 3, index: "#3", amount: "2k",  price: 500,  badge: "",           badgeType: "", cardClass: "" },
+            { id: 4, index: "#4", amount: "1k",  price: 250,  badge: "",           badgeType: "", cardClass: "" },
+            { id: 5, index: "#5", amount: "500", price: 100,  badge: "",           badgeType: "", cardClass: "" }
+        ];
+
+        let currentPackage = PACKAGES[0];
+        let currentMethod = "UPI QR";
+
+        /* =========================================================================
+           2. RENDER PRICE LIST CARDS
+           ========================================================================= */
+        function renderPriceCards() {
+            const grid = document.getElementById("price-grid");
+            if (!grid) return;
+
+            grid.innerHTML = PACKAGES.map(pkg => {
+                const badgeHtml = pkg.badge
+                    ? `<div class="card-badge ${pkg.badgeType === 'best' ? 'badge-best' : 'badge-popular'}">${pkg.badge}</div>`
+                    : "";
+
+                return `
+                    <article class="price-card ${pkg.cardClass}">
+                        ${badgeHtml}
+                        <div>
+                            <div class="card-top">
+                                <span class="pack-index">🇮🇳 ${pkg.index}</span>
+                                <span class="verified-check">✔ Instant Top-Up</span>
+                            </div>
+                            <div class="pack-main">
+                                <div class="pack-amount">${pkg.amount}<span>Pack</span></div>
+                                <div class="pack-price">₹${pkg.price}</div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-buy" onclick="openOrderModal(${pkg.id})">
+                            <span>Buy Now</span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </article>
+                `;
+            }).join("");
+        }
+
+        /* =========================================================================
+           3. SELF-CONTAINED QR CODE GENERATOR (BYTE MODE, VERSION 4, ECC-L)
+              Encodes standard UPI strings cleanly on Canvas with zero CDNs
+           ========================================================================= */
+        const QRGen = (function () {
+            // GF(256) log/exp tables for Reed-Solomon error correction
+            const EXP = new Array(256);
+            const LOG = new Array(256);
+            let x = 1;
+            for (let i = 0; i < 255; i++) {
+                EXP[i] = x;
+                LOG[x] = i;
+                x <<= 1;
+                if (x & 0x100) x ^= 0x11d;
+            }
+            for (let i = 255; i < 512; i++) EXP[i] = EXP[i - 255];
+
+            function gfMul(a, b) {
+                if (a === 0 || b === 0) return 0;
+                return EXP[LOG[a] + LOG[b]];
+            }
+
+            function rsGeneratorPoly(degree) {
+                let poly = [1];
+                for (let i = 0; i < degree; i++) {
+                    const next = new Array(poly.length + 1).fill(0);
+                    const factor = EXP[i];
+                    for (let j = 0; j < poly.length; j++) {
+                        next[j] ^= poly[j];
+                        next[j + 1] ^= gfMul(poly[j], factor);
+                    }
+                    poly = next;
+                }
+                return poly;
+            }
+
+            function rsComputeECC(data, eccLen) {
+                const gen = rsGeneratorPoly(eccLen);
+                const res = new Array(eccLen).fill(0);
+                for (let i = 0; i < data.length; i++) {
+                    const factor = data[i] ^ res[0];
+                    res.shift();
+                    res.push(0);
+                    if (factor !== 0) {
+                        for (let j = 0; j < eccLen; j++) {
+                            res[j] ^= gfMul(gen[j + 1], factor);
+                        }
+                    }
+                }
+                return res;
+            }
+
+            // Version configurations for Byte Mode, ECC Level L:
+            // v4: 33x33 (80 data bytes, 20 ecc bytes) -> holds up to 78 chars
+            // v5: 37x37 (108 data bytes, 26 ecc bytes) -> holds up to 106 chars
+            const VERSIONS = [
+                { ver: 4, size: 33, dataBytes: 80, eccBytes: 20, align: [6, 26] },
+                { ver: 5, size: 37, dataBytes: 108, eccBytes: 26, align: [6, 30] }
+            ];
+
+            function encodeData(text) {
+                const bytes = [];
+                for (let i = 0; i < text.length; i++) {
+                    bytes.push(text.charCodeAt(i) & 0xff);
+                }
+                const cfg = VERSIONS.find(v => bytes.length + 2 <= v.dataBytes) || VERSIONS[VERSIONS.length - 1];
+                const maxData = cfg.dataBytes;
+                const payload = bytes.slice(0, maxData - 2);
+
+                // Bit stream: 0100 (Byte mode) + 8-bit length + bytes + 0000 terminator
+                const bits = [];
+                const pushBits = (val, len) => {
+                    for (let i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
+                };
+                pushBits(0b0100, 4);
+                pushBits(payload.length, 8);
+                for (const b of payload) pushBits(b, 8);
+                pushBits(0, Math.min(4, maxData * 8 - bits.length));
+                while (bits.length % 8 !== 0) bits.push(0);
+
+                const codewords = [];
+                for (let i = 0; i < bits.length; i += 8) {
+                    let byte = 0;
+                    for (let j = 0; j < 8; j++) byte = (byte << 1) | bits[i + j];
+                    codewords.push(byte);
+                }
+                const pads = [0xec, 0x11];
+                let pIdx = 0;
+                while (codewords.length < maxData) {
+                    codewords.push(pads[pIdx % 2]);
+                    pIdx++;
+                }
+
+                const ecc = rsComputeECC(codewords, cfg.eccBytes);
+                return { cfg, allBytes: codewords.concat(ecc) };
+            }
+
+            function buildMatrix(text) {
+                const { cfg, allBytes } = encodeData(text);
+                const N = cfg.size;
+                const mat = Array.from({ length: N }, () => new Array(N).fill(null));
+                const func = Array.from({ length: N }, () => new Array(N).fill(false));
+
+                const setFunc = (r, c, val) => {
+                    if (r >= 0 && r < N && c >= 0 && c < N) {
+                        mat[r][c] = val ? 1 : 0;
+                        func[r][c] = true;
+                    }
+                };
+
+                // Finder patterns + separators
+                const placeFinder = (r0, c0) => {
+                    for (let r = -1; r <= 7; r++) {
+                        for (let c = -1; c <= 7; c++) {
+                            const inOuter = r >= 0 && r <= 6 && c >= 0 && c <= 6;
+                            const inBorder = r === 0 || r === 6 || c === 0 || c === 6;
+                            const inCenter = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+                            setFunc(r0 + r, c0 + c, inOuter && (inBorder || inCenter));
+                        }
+                    }
+                };
+                placeFinder(0, 0);
+                placeFinder(0, N - 7);
+                placeFinder(N - 7, 0);
+
+                // Alignment pattern (bottom-right)
+                const ac = cfg.align[1];
+                for (let r = -2; r <= 2; r++) {
+                    for (let c = -2; c <= 2; c++) {
+                        const onEdge = Math.abs(r) === 2 || Math.abs(c) === 2;
+                        const onCenter = r === 0 && c === 0;
+                        setFunc(ac + r, ac + c, onEdge || onCenter);
+                    }
+                }
+
+                // Timing patterns
+                for (let i = 8; i < N - 8; i++) {
+                    setFunc(6, i, i % 2 === 0);
+                    setFunc(i, 6, i % 2 === 0);
+                }
+
+                // Reserve format info & dark module
+                setFunc(N - 8, 8, true);
+                for (let i = 0; i < 9; i++) {
+                    if (!func[8][i]) setFunc(8, i, false);
+                    if (!func[i][8]) setFunc(i, 8, false);
+                }
+                for (let i = 0; i < 8; i++) {
+                    setFunc(8, N - 1 - i, false);
+                    setFunc(N - 1 - i, 8, false);
+                }
+
+                // Place data bits in zig-zag order
+                const bitStream = [];
+                for (const b of allBytes) {
+                    for (let i = 7; i >= 0; i--) bitStream.push((b >> i) & 1);
+                }
+
+                let bitIdx = 0;
+                let dirUp = true;
+                for (let right = N - 1; right >= 1; right -= 2) {
+                    if (right === 6) right = 5;
+                    for (let step = 0; step < N; step++) {
+                        const r = dirUp ? N - 1 - step : step;
+                        for (let dx = 0; dx < 2; dx++) {
+                            const c = right - dx;
+                            if (!func[r][c]) {
+                                const rawBit = bitIdx < bitStream.length ? bitStream[bitIdx++] : 0;
+                                // Mask pattern 0: (r + c) % 2 === 0
+                                const masked = ((r + c) % 2 === 0) ? (rawBit ^ 1) : rawBit;
+                                mat[r][c] = masked;
+                            }
+                        }
+                    }
+                    dirUp = !dirUp;
+                }
+
+                // Format bits for ECC-L (01) + Mask 0 (000) -> 15-bit BCH: 111011111000100
+                const fmt = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0];
+                const coordsA = [
+                    [8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,7],[8,8],
+                    [7,8],[5,8],[4,8],[3,8],[2,8],[1,8],[0,8]
+                ];
+                const coordsB = [
+                    [N-1,8],[N-2,8],[N-3,8],[N-4,8],[N-5,8],[N-6,8],[N-7,8],
+                    [8,N-8],[8,N-7],[8,N-6],[8,N-5],[8,N-4],[8,N-3],[8,N-2],[8,N-1]
+                ];
+                for (let i = 0; i < 15; i++) {
+                    mat[coordsA[i][0]][coordsA[i][1]] = fmt[i];
+                    mat[coordsB[i][0]][coordsB[i][1]] = fmt[i];
+                }
+
+                return mat;
+            }
+
+            function drawToCanvas(canvas, text) {
+                if (!canvas) return false;
+                try {
+                    const mat = buildMatrix(text);
+                    const N = mat.length;
+                    const quiet = 2;
+                    const total = N + quiet * 2;
+                    const size = canvas.width;
+                    const ctx = canvas.getContext("2d");
+
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fillRect(0, 0, size, size);
+
+                    const cell = size / total;
+                    ctx.fillStyle = "#0b2226";
+                    for (let r = 0; r < N; r++) {
+                        for (let c = 0; c < N; c++) {
+                            if (mat[r][c] === 1) {
+                                ctx.fillRect(
+                                    Math.floor((c + quiet) * cell),
+                                    Math.floor((r + quiet) * cell),
+                                    Math.ceil(cell),
+                                    Math.ceil(cell)
+                                );
+                            }
+                        }
+                    }
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+
+            return { drawToCanvas };
+        })();
+
+        function buildUpiUrl(amount) {
+            const base = `upi://pay?pa=${encodeURIComponent(STORE.upiId)}&pn=${encodeURIComponent(STORE.merchant)}&cu=INR`;
+            return amount ? `${base}&am=${encodeURIComponent(amount)}` : base;
+        }
+
+        function renderQrWidget(canvasId, fallbackImgId, upiUrl) {
+            const canvas = document.getElementById(canvasId);
+            const fallback = document.getElementById(fallbackImgId);
+            const drawn = QRGen.drawToCanvas(canvas, upiUrl);
+
+            if (drawn) {
+                if (canvas) canvas.style.display = "block";
+                if (fallback) fallback.style.display = "none";
+            } else {
+                if (canvas) canvas.style.display = "none";
+                if (fallback) {
+                    fallback.src = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(upiUrl)}`;
+                    fallback.style.display = "block";
+                }
+            }
+        }
+
+        /* =========================================================================
+           4. ORDER MODAL & INTERACTIVE ACTIONS
+           ========================================================================= */
+        function openOrderModal(packageId) {
+            currentPackage = PACKAGES.find(p => p.id === packageId) || PACKAGES[0];
+
+            document.getElementById("modal-pack-label").textContent = `🇮🇳 ${currentPackage.amount} ✔️`;
+            document.getElementById("modal-pack-price").textContent = `₹${currentPackage.price}`;
+            document.getElementById("modal-upi-btn-amt").textContent = currentPackage.price;
+
+            const exactUpiUrl = buildUpiUrl(currentPackage.price);
+            document.getElementById("modal-upi-link").href = exactUpiUrl;
+            renderQrWidget("modal-qr-canvas", "modal-qr-fallback", exactUpiUrl);
+
+            refreshOrderPreview();
+
+            const modal = document.getElementById("order-modal");
+            modal.classList.add("open");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeOrderModal() {
+            const modal = document.getElementById("order-modal");
+            modal.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+
+        // Close modal when clicking backdrop
+        document.getElementById("order-modal").addEventListener("click", function (e) {
+            if (e.target === this) closeOrderModal();
+        });
+
+        function selectPayMethod(btn, method) {
+            currentMethod = method;
+            document.querySelectorAll("#method-pills .method-pill").forEach(el => el.classList.remove("active"));
+            btn.classList.add("active");
+            refreshOrderPreview();
+        }
+
+        function getFormattedOrderText() {
+            const uidVal = document.getElementById("input-uid").value.trim();
+            const utrVal = document.getElementById("input-utr").value.trim();
+            const displayUid = uidVal || "[Enter Game UID]";
+            const utrRow = utrVal ? `\nUTR / Ref No: ${utrVal}` : "";
+
+            return (
+`NEW ORDER — ${STORE.name} 🇮🇳
+-------------------------
+Package: ${currentPackage.amount} ✔️
+Amount: ₹${currentPackage.price}
+Game UID: ${displayUid}
+Payment App: ${currentMethod}${utrRow}
+Paid To: ${STORE.merchant} (${STORE.upiId})
+-------------------------
+Payment completed! Attaching screenshot.`
+            );
+        }
+
+        function refreshOrderPreview() {
+            const uidInput = document.getElementById("input-uid");
+            if (uidInput.value.trim()) {
+                uidInput.classList.remove("input-error");
+            }
+            document.getElementById("order-preview").value = getFormattedOrderText();
+        }
+
+        function sendOrderOnWhatsApp() {
+            const uidInput = document.getElementById("input-uid");
+            if (!uidInput.value.trim()) {
+                uidInput.classList.add("input-error");
+                uidInput.focus();
+                showToast("Please enter your Game UID first!");
+                return;
+            }
+            const text = encodeURIComponent(getFormattedOrderText());
+            const waUrl = `https://wa.me/${STORE.whatsappPhone}?text=${text}`;
+            window.open(waUrl, "_blank", "noopener,noreferrer");
+        }
+
+        /* =========================================================================
+           5. CLIPBOARD & TOAST HELPERS (IFRAME-SAFE execCommand)
+           ========================================================================= */
+        function copyToClipboard(text, message) {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            ta.setSelectionRange(0, 99999);
+            try {
+                document.execCommand("copy");
+                showToast(message);
+            } catch (err) {
+                showToast("Unable to copy automatically.");
+            }
+            document.body.removeChild(ta);
+        }
+
+        function copyUpiId(btnId) {
+            copyToClipboard(STORE.upiId, `Copied UPI ID: ${STORE.upiId}`);
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                const origHtml = btn.innerHTML;
+                btn.classList.add("copied");
+                btn.innerHTML = "<span>✔ Copied!</span>";
+                setTimeout(() => {
+                    btn.classList.remove("copied");
+                    btn.innerHTML = origHtml;
+                }, 2000);
+            }
+        }
+
+        function copyOrderSlip() {
+            copyToClipboard(getFormattedOrderText(), "Order slip copied to clipboard!");
+        }
+
+        let toastTimer = null;
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toast-text").textContent = msg;
+            toast.classList.add("show");
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2600);
+        }
+
+        /* =========================================================================
+           6. INITIALIZE ON PAGE LOAD
+           ========================================================================= */
+        document.addEventListener("DOMContentLoaded", function () {
+            renderPriceCards();
+            renderQrWidget("main-qr-canvas", "main-qr-fallback", buildUpiUrl());
+        });
+    </script>
+</body>
+</html>
+```
